@@ -145,3 +145,11 @@ MakeReinitedVarsStates
 2. Assimulo3.0 -> 3.2
 3. sundials2.7 -> 6.0
 4. JFlex1.4.3 -> 1.8.2
+
+### 其他信息
+1. 为什么不用MinGW with msys1.0？
+- 因为编译不过去，1.0里面的很多包都不更新了， 只能自己手动安装，很麻烦，gcc版本为6.2，遇到了很多问题，无法解决，包括fortran的问题，最后放弃了，安装错误日志一大堆无法绕过的问题
+2. 为什么不用cgywin？
+- 因为编译不过去，包括找不到stdio.h\string.h之类的莫名其妙问题。
+3. 修改版核心解决了什么问题？
+- 核心解决了gcc11针对fortran编译语法严格了，增加-fallow-argument-mismatch忽略错误；升级了ipopt版本导致configure文件的相关错误；修复了tar命令在mingw上必须要带"-f -" 参数来处理管道问题；JFlex1.4.3生成注释中date会生成中文导致javac无法通过；升级了ModelicaStandardTable仓库2021年最新版；修复了CasADi源码的一些错误；修复了superlu_mt中自动创建目录的错误；
