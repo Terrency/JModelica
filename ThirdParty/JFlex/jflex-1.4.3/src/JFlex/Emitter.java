@@ -39,7 +39,7 @@ final public class Emitter {
   static final private int FINAL = 1;
   static final private int NOLOOK = 8;
 
-  static final private String date = (new SimpleDateFormat()).format(new Date());
+  static final private String date = (new SimpleDateFormat("yyyy-MM-dd HH:mm:ss")).format(new Date());
 
   private File inputFile;
 

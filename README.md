@@ -80,7 +80,7 @@ make install
 - 分支预测
   
 高斯赛德尔迭代，雅克比矩阵Jacobian， 撕裂变量，迭代变量，牛顿迭代，撕裂代数环方程组
-
+0
 ### 1.2 项目环境变量注意事项
 1. EnvironmentUtils 104 lines
 SUNDIALS_HOME : D:\Program_Files\JModelica.org-2.14\install\ThirdParty\Sundials
