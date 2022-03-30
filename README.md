@@ -5,6 +5,73 @@ This Repository is forked from JModelica/JModelica and make some changes to make
 # JModelica修改版
 这个版本是基于JModelica/Jmodelica仓库修改，使她能够运行起来，修改了不少文件，升级了三方库，增加了Linux 安装步骤脚本，Windows编译步骤脚本，以及编译器工作优化步骤说明与解释。
 
+## 编译方法
+1. Linux平台编译方法
+2. Windows编译方法
+### 编译方法 Linux
+1. [参看文件](install_jmodelica_patch.sh)
+### 编译方法 Windows
+1. MSYS2 安装
+> [下载地址](https://objects.githubusercontent.com/github-production-release-asset-2e65be/80988227/258be22a-3a6b-4319-a0f6-7a41f0afc8c5?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIWNJYAX4CSVEH53A%2F20220328%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20220328T053137Z&X-Amz-Expires=300&X-Amz-Signature=afc34d0e8ceaeb03bbd5145d4ad75841f8829177321822128c8fbbcbeb7fda71&X-Amz-SignedHeaders=host&actor_id=0&key_id=0&repo_id=80988227&response-content-disposition=attachment%3B%20filename%3Dmsys2-x86_64-20220319.exe&response-content-type=application%2Foctet-stream)
+2. 安装依赖包 
+> 进入MSYS2命令行执行
+```bash
+pacman -S mingw-w64-i686-toolchain mingw-w64-i686-cmake binutils diffutils git grep make patch pkg-config mingw32/mingw-w64-i686-liblas python-pip mingw-w64-i686-python-numpy mingw-w64-i686-cython mingw-w64-i686-lapack
+```
+3. 安装ant 
+> [下载地址](https://dlcdn.apache.org//ant/binaries/apache-ant-1.10.12-bin.zip)
+```bash
+export ANT_HOME=/c/apache-ant-1.10.12/
+export PATH=$ANT_HOME/bin:$PATH
+```
+4. 安装Ipopt
+> 进入MinGW32的命令行窗体
+```bash
+git clone https://github.com/coin-or-tools/ThirdParty-ASL.git
+cd ThirdParty-ASL
+./get.ASL
+./configure
+make
+make install
+cd ../
+git clone https://github.com/coin-or-tools/ThirdParty-Mumps.git
+cd ThirdParty-Mumps
+./get.Mumps
+./configure --with-lapack-lflags="-L/C:/msys64/mingw32/lib -llapack -lblas"
+make
+sudo make install
+cd ../
+# Fixme 最后使用的是 Ipopt-stable-3.14.zip文件
+git clone https://github.com/coin-or/Ipopt.git
+cd Ipopt
+mkdir build && cd build
+../configure --prefix=/home/Administrator/install/ipopt
+make
+make install
+cd ../../
+```
+5. 安装JModelica
+```bash
+export ANT_HOME=/c/apache-ant-1.10.12/
+export PATH=$ANT_HOME/bin:$PATH
+export JAVA_HOME=/C:/Program Files/Java/jdk1.8.0_231
+
+git clone https://github.com/JModelica/JModelica.git
+cd JModelica
+# 修复 get_version
+cat > get_version.sh<<EOF
+#!/bin/bash
+echo "2.14"
+EOF
+# 修复ipopt 版本差异 coin => coin-or
+patch -p0 configure configure.patch
+# 修复tar复制目录在windows目录问题, Assimulo python执行setup 增加编译参数-fallow-argument-mismatch, 注释掉build-compiler
+patch -p0 Makefile.in Makefile.in.patch
+mkdir build && cd build && mkdir -p superlu_build/lib
+../configure --prefix=/home/hubei/install/jmodelica --with-ipopt=/home/Administrator/install/ipopt
+make
+make install
+```
 ## 1.优化器方法论
 - 别名消除
 - 形式转换
