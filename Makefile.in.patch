@@ -1,0 +1,112 @@
+1022c1022
+< @PYTHON_ENABLED_TRUE@@WITH_OPENMP_TRUE@	find Assimulo -type f |grep -v /.svn | grep -v .pyc | grep -v ~ |tar c -T - -f - | tar x -C $(assimulo_build_dir); \
+---
+> @PYTHON_ENABLED_TRUE@@WITH_OPENMP_TRUE@	find Assimulo -type f |grep -v /.svn | grep -v .pyc | grep -v ~ |tar c -T - -f - | tar x -f - -C $(assimulo_build_dir); \
+1026c1026
+< @PYTHON_ENABLED_TRUE@@WITH_OPENMP_TRUE@	python setup.py install --with_openmp=True --superlu-home=$(abs_builddir)/superlu_build/ --sundials-home=$(SUNDIALS_HOME) --sundials-with-superlu=True --blas-home=$(abs_builddir)/blas_install/ --lapack-home=$(abs_builddir)/lapack_install/ --force-32bit="true" --extra-c-flags="-mincoming-stack-boundary=2" --prefix=$(assimulo_install_dir) ;; \
+---
+> @PYTHON_ENABLED_TRUE@@WITH_OPENMP_TRUE@	python setup.py install --with_openmp=True --superlu-home=$(abs_builddir)/superlu_build/ --sundials-home=$(SUNDIALS_HOME) --sundials-with-superlu=True --blas-home=$(abs_builddir)/blas_install/ --lapack-home=$(abs_builddir)/lapack_install/ --force-32bit="true" --extra-c-flags="-mincoming-stack-boundary=2 -fallow-argument-mismatch" --prefix=$(assimulo_install_dir) ;; \
+1028c1028
+< @PYTHON_ENABLED_TRUE@@WITH_OPENMP_TRUE@	python setup.py install --with_openmp=True --superlu-home=$(abs_builddir)/superlu_build/ --sundials-home=$(SUNDIALS_HOME) --sundials-with-superlu=True --blas-home=$(abs_builddir)/blas_install/ --lapack-home=$(abs_builddir)/lapack_install/ --force-32bit="true" $(NUMPY_NO_MSVCR_ARG) --extra-c-flags="-mincoming-stack-boundary=2" --prefix=$(assimulo_install_dir) ;; \
+---
+> @PYTHON_ENABLED_TRUE@@WITH_OPENMP_TRUE@	python setup.py install --with_openmp=True --superlu-home=$(abs_builddir)/superlu_build/ --sundials-home=$(SUNDIALS_HOME) --sundials-with-superlu=True --blas-home=$(abs_builddir)/blas_install/ --lapack-home=$(abs_builddir)/lapack_install/ --force-32bit="true" $(NUMPY_NO_MSVCR_ARG) --extra-c-flags="-mincoming-stack-boundary=2 -fallow-argument-mismatch" --prefix=$(assimulo_install_dir) ;; \
+1034c1034
+< @JM_WIN64_TRUE@@PYTHON_ENABLED_TRUE@@WITH_OPENMP_TRUE@@WITH_PYTHON64_TRUE@	find Assimulo -type f |grep -v /.svn | grep -v .pyc | grep -v ~ |tar c -T - -f - | tar x -C $(assimulo_build_dir64); \
+---
+> @JM_WIN64_TRUE@@PYTHON_ENABLED_TRUE@@WITH_OPENMP_TRUE@@WITH_PYTHON64_TRUE@	find Assimulo -type f |grep -v /.svn | grep -v .pyc | grep -v ~ |tar c -T - -f - | tar x -f - -C $(assimulo_build_dir64); \
+1043c1043
+< @PYTHON_ENABLED_TRUE@@WITH_OPENMP_FALSE@	find Assimulo -type f |grep -v /.svn | grep -v .pyc | grep -v ~ |tar c -T - -f - | tar x -C $(assimulo_build_dir); \
+---
+> @PYTHON_ENABLED_TRUE@@WITH_OPENMP_FALSE@	find Assimulo -type f |grep -v /.svn | grep -v .pyc | grep -v ~ |tar c -T - -f - | tar x -f - -C $(assimulo_build_dir); \
+1047c1047
+< @PYTHON_ENABLED_TRUE@@WITH_OPENMP_FALSE@	python setup.py install --sundials-home=$(SUNDIALS_HOME) --blas-home=$(abs_builddir)/blas_install/ --lapack-home=$(abs_builddir)/lapack_install/ --force-32bit="true" --extra-c-flags="-mincoming-stack-boundary=2" --prefix=$(assimulo_install_dir) ;; \
+---
+> @PYTHON_ENABLED_TRUE@@WITH_OPENMP_FALSE@	python setup.py install --sundials-home=$(SUNDIALS_HOME) --blas-home=$(abs_builddir)/blas_install/ --lapack-home=$(abs_builddir)/lapack_install/ --force-32bit="true" --extra-c-flags="-mincoming-stack-boundary=2 -fallow-argument-mismatch" --prefix=$(assimulo_install_dir) ;; \
+1049c1049
+< @PYTHON_ENABLED_TRUE@@WITH_OPENMP_FALSE@	python setup.py install --sundials-home=$(SUNDIALS_HOME) --blas-home=$(abs_builddir)/blas_install/ --lapack-home=$(abs_builddir)/lapack_install/ --force-32bit="true" $(NUMPY_NO_MSVCR_ARG) --extra-c-flags="-mincoming-stack-boundary=2" --prefix=$(assimulo_install_dir) ;; \
+---
+> @PYTHON_ENABLED_TRUE@@WITH_OPENMP_FALSE@	python setup.py install --sundials-home=$(SUNDIALS_HOME) --blas-home=$(abs_builddir)/blas_install/ --lapack-home=$(abs_builddir)/lapack_install/ --force-32bit="true" $(NUMPY_NO_MSVCR_ARG) --extra-c-flags="-mincoming-stack-boundary=2 -fallow-argument-mismatch" --prefix=$(assimulo_install_dir) ;; \
+1055c1055
+< @JM_WIN64_TRUE@@PYTHON_ENABLED_TRUE@@WITH_OPENMP_FALSE@@WITH_PYTHON64_TRUE@	find Assimulo -type f |grep -v /.svn | grep -v .pyc | grep -v ~ |tar c -T - -f - | tar x -C $(assimulo_build_dir64); \
+---
+> @JM_WIN64_TRUE@@PYTHON_ENABLED_TRUE@@WITH_OPENMP_FALSE@@WITH_PYTHON64_TRUE@	find Assimulo -type f |grep -v /.svn | grep -v .pyc | grep -v ~ |tar c -T - -f - | tar x -f - -C $(assimulo_build_dir64); \
+1074c1074
+< @PYTHON_ENABLED_TRUE@	find PyFMI -type f |grep -v /.svn | grep -v .pyc | grep -v ~ |tar c -T - -f - | tar x -C $(pyfmi_build_dir); \
+---
+> @PYTHON_ENABLED_TRUE@	find PyFMI -type f |grep -v /.svn | grep -v .pyc | grep -v ~ |tar c -T - -f - | tar x -f - -C $(pyfmi_build_dir); \
+1087c1087
+< @JM_WIN64_TRUE@@PYTHON_ENABLED_TRUE@@WITH_PYTHON64_TRUE@	find PyFMI -type f |grep -v /.svn | grep -v .pyc | grep -v ~ |tar c -T - -f - | tar x -C $(pyfmi_build_dir64); \
+---
+> @JM_WIN64_TRUE@@PYTHON_ENABLED_TRUE@@WITH_PYTHON64_TRUE@	find PyFMI -type f |grep -v /.svn | grep -v .pyc | grep -v ~ |tar c -T - -f - | tar x -f - -C $(pyfmi_build_dir64); \
+1112c1112
+< @PYTHON_ENABLED_TRUE@	find . -type f |grep -v /.svn | grep -v .pyc | grep -v ~ |tar c -T - -f - | tar x -C $(DESTDIR)$(prefix)/Python/tests_jmodelica
+---
+> @PYTHON_ENABLED_TRUE@	find . -type f |grep -v /.svn | grep -v .pyc | grep -v ~ |tar c -T - -f - | tar x -f - -C $(DESTDIR)$(prefix)/Python/tests_jmodelica
+1119c1119
+< @JM_WIN64_TRUE@@PYTHON_ENABLED_TRUE@@WITH_PYTHON64_TRUE@	find . -type f |grep -v /.svn | grep -v .pyc | grep -v ~ |tar c -T - -f - | tar x -C $(DESTDIR)$(prefix)/Python_64/tests_jmodelica
+---
+> @JM_WIN64_TRUE@@PYTHON_ENABLED_TRUE@@WITH_PYTHON64_TRUE@	find . -type f |grep -v /.svn | grep -v .pyc | grep -v ~ |tar c -T - -f - | tar x -f - -C $(DESTDIR)$(prefix)/Python_64/tests_jmodelica
+1137c1137
+< @PYTHON_ENABLED_TRUE@	find assimulo -type f |grep -v /.svn | grep -v .pyc | grep -v ~ |tar c -T - -f - | tar x -C $(DESTDIR)$(prefix)/Python; \
+---
+> @PYTHON_ENABLED_TRUE@	find assimulo -type f |grep -v /.svn | grep -v .pyc | grep -v ~ |tar c -T - -f - | tar x -f - -C $(DESTDIR)$(prefix)/Python; \
+1144c1144
+< @PYTHON_ENABLED_TRUE@	find pymodelica -type f |grep -v /.svn | grep -v .pyc | grep -v ~ |tar c -T - -f - | tar x -C $(DESTDIR)$(prefix)/Python; \
+---
+> @PYTHON_ENABLED_TRUE@	find pymodelica -type f |grep -v /.svn | grep -v .pyc | grep -v ~ |tar c -T - -f - | tar x -f - -C $(DESTDIR)$(prefix)/Python; \
+1151c1151
+< @PYTHON_ENABLED_TRUE@	find pyjmi -type f |grep -v /.svn | grep -v .pyc | grep -v ~ |tar c -T - -f - | tar x -C $(DESTDIR)$(prefix)/Python; \
+---
+> @PYTHON_ENABLED_TRUE@	find pyjmi -type f |grep -v /.svn | grep -v .pyc | grep -v ~ |tar c -T - -f - | tar x -f - -C $(DESTDIR)$(prefix)/Python; \
+1158c1158
+< @PYTHON_ENABLED_TRUE@	find pyfmi -type f |grep -v /.svn | grep -v .pyc | grep -v ~ |tar c -T - -f - | tar x -C $(DESTDIR)$(prefix)/Python; \
+---
+> @PYTHON_ENABLED_TRUE@	find pyfmi -type f |grep -v /.svn | grep -v .pyc | grep -v ~ |tar c -T - -f - | tar x -f - -C $(DESTDIR)$(prefix)/Python; \
+1165c1165
+< @JM_WIN64_TRUE@@PYTHON_ENABLED_TRUE@	find assimulo -type f |grep -v /.svn | grep -v .pyc | grep -v ~ |tar c -T - -f - | tar x -C $(DESTDIR)$(prefix)/Python_64; \
+---
+> @JM_WIN64_TRUE@@PYTHON_ENABLED_TRUE@	find assimulo -type f |grep -v /.svn | grep -v .pyc | grep -v ~ |tar c -T - -f - | tar x -f - -C $(DESTDIR)$(prefix)/Python_64; \
+1172c1172
+< @JM_WIN64_TRUE@@PYTHON_ENABLED_TRUE@	find pymodelica -type f |grep -v /.svn | grep -v .pyc | grep -v ~ |tar c -T - -f - | tar x -C $(DESTDIR)$(prefix)/Python_64; \
+---
+> @JM_WIN64_TRUE@@PYTHON_ENABLED_TRUE@	find pymodelica -type f |grep -v /.svn | grep -v .pyc | grep -v ~ |tar c -T - -f - | tar x -f - -C $(DESTDIR)$(prefix)/Python_64; \
+1179c1179
+< @JM_WIN64_TRUE@@PYTHON_ENABLED_TRUE@	find pyjmi -type f |grep -v /.svn | grep -v .pyc | grep -v ~ |tar c -T - -f - | tar x -C $(DESTDIR)$(prefix)/Python_64; \
+---
+> @JM_WIN64_TRUE@@PYTHON_ENABLED_TRUE@	find pyjmi -type f |grep -v /.svn | grep -v .pyc | grep -v ~ |tar c -T - -f - | tar x -f - -C $(DESTDIR)$(prefix)/Python_64; \
+1186c1186
+< @JM_WIN64_TRUE@@PYTHON_ENABLED_TRUE@	find pyfmi -type f |grep -v /.svn | grep -v .pyc | grep -v ~ |tar c -T - -f - | tar x -C $(DESTDIR)$(prefix)/Python_64; \
+---
+> @JM_WIN64_TRUE@@PYTHON_ENABLED_TRUE@	find pyfmi -type f |grep -v /.svn | grep -v .pyc | grep -v ~ |tar c -T - -f - | tar x -f - -C $(DESTDIR)$(prefix)/Python_64; \
+1239c1239
+< 	  find * -type f |grep -v /.svn | grep -v ~ |tar c -T - -f - | tar x -C "$(DESTDIR)$(prefix)/ThirdParty/MSL/Modelica"; \
+---
+> 	  find * -type f |grep -v /.svn | grep -v ~ |tar c -T - -f - | tar x -f - -C "$(DESTDIR)$(prefix)/ThirdParty/MSL/Modelica"; \
+1241c1241
+< 	  find * -type f |grep -v /.svn | grep -v ~ |tar c -T - -f - | tar x -C "$(DESTDIR)$(prefix)/ThirdParty/MSL/ModelicaServices"; \
+---
+> 	  find * -type f |grep -v /.svn | grep -v ~ |tar c -T - -f - | tar x -f - -C "$(DESTDIR)$(prefix)/ThirdParty/MSL/ModelicaServices"; \
+1272c1272
+< @HAVE_ANT_TRUE@	$(ANT_OPTS) $(ANT) -f "$(JAVA_MC_ANT_FILE)" "-Dcompiler=$(COMPILER_DIR)" "-Dtarget=$(JAVA_BUILD_DIR)"
+---
+> @HAVE_ANT_TRUE@	#$(ANT_OPTS) $(ANT) -f "$(JAVA_MC_ANT_FILE)" "-Dcompiler=$(COMPILER_DIR)" "-Dtarget=$(JAVA_BUILD_DIR)"
+1274c1274
+< @HAVE_ANT_TRUE@	$(ANT_OPTS) $(ANT) -f "$(JAVA_OC_ANT_FILE)" "-Dcompiler=$(COMPILER_DIR)" "-Dtarget=$(JAVA_BUILD_DIR)"
+---
+> @HAVE_ANT_TRUE@	#$(ANT_OPTS) $(ANT) -f "$(JAVA_OC_ANT_FILE)" "-Dcompiler=$(COMPILER_DIR)" "-Dtarget=$(JAVA_BUILD_DIR)"
+1299c1299
+< @COMPILE_WITH_IPOPT_TRUE@	cd $(IPOPT_HOME); find * -type f |grep -v /.svn | grep -v ~ |tar c -T - -f - | tar x -C $(abs_builddir)/$(bindistdir)/ThirdParty/Ipopt
+---
+> @COMPILE_WITH_IPOPT_TRUE@	cd $(IPOPT_HOME); find * -type f |grep -v /.svn | grep -v ~ |tar c -T - -f - | tar x -f - -C $(abs_builddir)/$(bindistdir)/ThirdParty/Ipopt
+1301c1301
+< @COMPILE_WITH_IPOPT_TRUE@	cd $(IPOPT_HOME); find * -type l |grep -v /.svn | grep -v ~ |tar c -T - -f - | tar x -C $(abs_builddir)/$(bindistdir)/ThirdParty/Ipopt
+---
+> @COMPILE_WITH_IPOPT_TRUE@	cd $(IPOPT_HOME); find * -type l |grep -v /.svn | grep -v ~ |tar c -T - -f - | tar x -f - -C $(abs_builddir)/$(bindistdir)/ThirdParty/Ipopt
+1305c1305
+< @WITH_MINGW_TRUE@	cd $(MINGW_HOME); find * -type f |grep -v /.svn | grep -v ~ |tar c -T - -f - | tar x -C $(abs_builddir)/$(bindistdir)/ThirdParty/MinGW
+---
+> @WITH_MINGW_TRUE@	cd $(MINGW_HOME); find * -type f |grep -v /.svn | grep -v ~ |tar c -T - -f - | tar x -f - -C $(abs_builddir)/$(bindistdir)/ThirdParty/MinGW
+1307c1307
+< @WITH_MINGW_TRUE@	cd $(MINGW_HOME); find * -type l |grep -v /.svn | grep -v ~ |tar c -T - -f - | tar x -C $(abs_builddir)/$(bindistdir)/ThirdParty/MinGW
+---
+> @WITH_MINGW_TRUE@	cd $(MINGW_HOME); find * -type l |grep -v /.svn | grep -v ~ |tar c -T - -f - | tar x -f - -C $(abs_builddir)/$(bindistdir)/ThirdParty/MinGW

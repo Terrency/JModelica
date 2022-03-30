@@ -1,0 +1,42 @@
+--- configure	2022-03-29 13:28:55.196887500 +0800
++++ configurenew	2022-03-29 13:28:49.510157100 +0800
+@@ -18994,15 +18994,15 @@ $as_echo "* --with-ipopt option specifie
+ $as_echo "***********************************************************************" >&6; }
+        { $as_echo "$as_me:${as_lineno-$LINENO}: result:  " >&5
+ $as_echo " " >&6; }
+-       as_ac_File=`$as_echo "ac_cv_file_$ipopt/include/coin/IpStdCInterface.h" | $as_tr_sh`
+-{ $as_echo "$as_me:${as_lineno-$LINENO}: checking for $ipopt/include/coin/IpStdCInterface.h" >&5
+-$as_echo_n "checking for $ipopt/include/coin/IpStdCInterface.h... " >&6; }
++       as_ac_File=`$as_echo "ac_cv_file_$ipopt/include/coin-or/IpStdCInterface.h" | $as_tr_sh`
++{ $as_echo "$as_me:${as_lineno-$LINENO}: checking for $ipopt/include/coin-or/IpStdCInterface.h" >&5
++$as_echo_n "checking for $ipopt/include/coin-or/IpStdCInterface.h... " >&6; }
+ if eval \${$as_ac_File+:} false; then :
+   $as_echo_n "(cached) " >&6
+ else
+   test "$cross_compiling" = yes &&
+   as_fn_error $? "cannot check for file existence when cross compiling" "$LINENO" 5
+-if test -r "$ipopt/include/coin/IpStdCInterface.h"; then
++if test -r "$ipopt/include/coin-or/IpStdCInterface.h"; then
+   eval "$as_ac_File=yes"
+ else
+   eval "$as_ac_File=no"
+@@ -19073,15 +19073,15 @@ $as_echo "* --with-ipopt64 option specif
+ $as_echo "***********************************************************************" >&6; }
+        { $as_echo "$as_me:${as_lineno-$LINENO}: result:  " >&5
+ $as_echo " " >&6; }
+-       as_ac_File=`$as_echo "ac_cv_file_$ipopt64/include/coin/IpStdCInterface.h" | $as_tr_sh`
+-{ $as_echo "$as_me:${as_lineno-$LINENO}: checking for $ipopt64/include/coin/IpStdCInterface.h" >&5
+-$as_echo_n "checking for $ipopt64/include/coin/IpStdCInterface.h... " >&6; }
++       as_ac_File=`$as_echo "ac_cv_file_$ipopt64/include/coin-or/IpStdCInterface.h" | $as_tr_sh`
++{ $as_echo "$as_me:${as_lineno-$LINENO}: checking for $ipopt64/include/coin-or/IpStdCInterface.h" >&5
++$as_echo_n "checking for $ipopt64/include/coin-or/IpStdCInterface.h... " >&6; }
+ if eval \${$as_ac_File+:} false; then :
+   $as_echo_n "(cached) " >&6
+ else
+   test "$cross_compiling" = yes &&
+   as_fn_error $? "cannot check for file existence when cross compiling" "$LINENO" 5
+-if test -r "$ipopt64/include/coin/IpStdCInterface.h"; then
++if test -r "$ipopt64/include/coin-or/IpStdCInterface.h"; then
+   eval "$as_ac_File=yes"
+ else
+   eval "$as_ac_File=no"
