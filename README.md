@@ -51,6 +51,7 @@ make install
 cd ../../
 ```
 5. 安装JModelica
+> 进入MinGW32的命令行窗体
 ```bash
 export ANT_HOME=/c/apache-ant-1.10.12/
 export PATH=$ANT_HOME/bin:$PATH
